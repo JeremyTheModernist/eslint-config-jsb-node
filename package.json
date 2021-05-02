@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-jsb-node",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An eslint config for node js and typescript",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,10 @@
     "pretty": "npx  prettier --write \"**/*.+(js|jsx|json|css|md)\""
   },
   "keywords": [
-    "eslint"
+    "eslint",
+    "typescript",
+    "prettier",
+    "node js"
   ],
   "author": "Jeremy Barnes",
   "license": "MIT",
