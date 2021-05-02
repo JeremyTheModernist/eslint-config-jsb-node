@@ -44,7 +44,7 @@ This will actually allow your project to leverage this config.
 }
 ```
 
-5. If you run `npm run lint` from your terminal, it will expose any issues. IF you run `npm run lint:fix` it will quietly fix all of your javascript and typescript files in any project subdirectories.
+5. If you run `npm run lint` from your terminal, it will expose any issues. If you run `npm run lint:fix` it will quietly fix all of your javascript and typescript files in any project subdirectories.
 
 6. Now, you need to create a `tsconfig.json` file in your root project directory. This is where your typescript configuration will live. It's also how eslint will be able to work with typescript. I recommend the following as a start, but feel free to customize where needed:
 
@@ -114,7 +114,7 @@ VS Code can be tricky with linting, especially if you have global formatting too
 
 # Customize the Settings
 
-Want to customize the ESLint and Prettier settings even further? You can add the rules in your `.eslintrc.json` file. [ESLint Rules](https://eslint.org/docs/rules/) go under the `"rules"` option. [Prettier Options](https://prettier.io/docs/en/options.html) will be nested in the `"prettier/prettier"` options. Any prettier rules will overwrite the existing ones in my config. Here's an example of what you could do:
+Want to customize the ESLint and Prettier settings even further? You can add the rules in your `.eslintrc.json` file. [ESLint Rules](https://eslint.org/docs/rules/) go under the `"rules"` option. [Prettier options](https://prettier.io/docs/en/options.html) should be nested in `"prettier/prettier"`. Any prettier rules will overwrite the existing ones in my config. Here's an example of what you could do:
 
 ```json
 {
