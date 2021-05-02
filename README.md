@@ -11,9 +11,9 @@ Need, to change things? You can easily do that as well.
 - It lints all of your `js` and `ts` code in any project subdirectories
 - It uses eslint-config-airbnb-typescript for it's underyling lint rules
 - It fixes issues and formatting errors with Prettier
-- It provides `@types/node` package so all necessary node types are available
+- It provides all the necessary packages, like `typescript` and `@types/node`, to run typescript in Node.js
 
-# Local Setup
+# Local setup
 
 To set this up in your project:
 
@@ -23,7 +23,7 @@ To set this up in your project:
 npx install-peerdeps -D eslint-config-jsb-node
 ```
 
-2. You should now notice that your `package.json` is popuplated with several dependencies.
+2. You should now notice that your `package.json` is popuplated with several new dependencies.
 
 3. Now, create an `.eslintrc.json` file in your root project directory, and provide the following json:
 
@@ -37,10 +37,10 @@ This will actually allow your project to leverage this config.
 
 4. Next, add some scripts to your `package.json` so you can run eslint:
 
-```js
+```json
 "scripts": {
-    "lint": "eslint ."
-    "lint:fix": "eslint '**/*.{ts,js}' --quiet --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint '**/*.{ts,js}' --quiet --fix"
 }
 ```
 
@@ -65,7 +65,7 @@ This will actually allow your project to leverage this config.
 }
 ```
 
-7. Typescript will now expect files to exist in your `src` directory. Go ahead and create a sample file in `src` called `index.ts`:
+7. Typescript will now expect `ts` files to exist in your `src` directory. Go ahead and create a sample file in `src` called `index.ts`:
 
 ```ts
 const getFood: () => string = () => {
@@ -112,9 +112,9 @@ VS Code can be tricky with linting, especially if you have global formatting too
 
 **Pro-Tip**: You can either quit VS Code and reopen it, or pull up the command palette and type "reload" then select "Developer: Reload Window."
 
-# Customize the Settings
+# Customize the settings
 
-Want to customize the ESLint and Prettier settings even further? You can add the rules in your `.eslintrc.json` file. [ESLint Rules](https://eslint.org/docs/rules/) go under the `"rules"` option. [Prettier options](https://prettier.io/docs/en/options.html) should be nested in `"prettier/prettier"`. Any prettier rules will overwrite the existing ones in my config. Here's an example of what you could do:
+Want to customize the ESLint and Prettier settings even further? You can add the rules in your `.eslintrc.json` file. [ESLint Rules](https://eslint.org/docs/rules/) go under the `"rules"` option. [Prettier options](https://prettier.io/docs/en/options.html) should be nested in `"prettier/prettier"`. Any prettier rules will overwrite the existing ones in my config, so if you want to keep the existing ones, be sure to include them. Here's an example of what you could do:
 
 ```json
 {
@@ -124,11 +124,18 @@ Want to customize the ESLint and Prettier settings even further? You can add the
     "prettier/prettier": [
       "error",
       {
-        "arrowParens": "avoid"
+        "arrowParens": "avoid",
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "printWidth": 80
       }
     ]
   }
 }
 ```
 
-This would turn all console lint errors off (so you can use `console.log`). It would also omit parens in arrow functions when possible.
+This would turn all console lint errors off (so you can use `console.log`). It would also add a prettier rule for omitting parens in arrow functions when possible.
+
+# Where to go from here
+
+From here, I'd recommend installing [ts-node](https://www.npmjs.com/package/ts-node). With this package, you can execute typescript in node with no compilation necessary.
