@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-jsb-node",
-  "version": "1.0.1",
-  "description": "an eslint config for node js",
+  "version": "1.0.2",
+  "description": "An eslint config for node js and typescript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
