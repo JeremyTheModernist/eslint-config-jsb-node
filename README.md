@@ -19,7 +19,7 @@ To set this up in your project:
 
 1. Ensure you are in the root project directory and that you have a `package.json`, then install all necessary dependencies:
 
-```
+```bash
 npx install-peerdeps -D eslint-config-jsb-node
 ```
 
@@ -27,7 +27,7 @@ npx install-peerdeps -D eslint-config-jsb-node
 
 3. Now, create an `.eslintrc.json` file in your root project directory, and provide the following json:
 
-```
+```json
 {
   "extends": ["eslint-config-jsb-node"]
 }
@@ -37,7 +37,7 @@ This will actually allow your project to leverage this config.
 
 4. Next, add some scripts to your `package.json` so you can run eslint:
 
-```
+```js
 "scripts": {
     "lint": "eslint ."
     "lint:fix": "eslint '**/*.{ts,js}' --quiet --fix",
@@ -48,7 +48,7 @@ This will actually allow your project to leverage this config.
 
 6. Now, you need to create a `tsconfig.json` file in your root project directory. This is where your typescript configuration will live. It's also how eslint will be able to work with typescript. I recommend the following as a start, but feel free to customize where needed:
 
-```
+```js
 {
   "compilerOptions": {
     "target": "es6", // compiles to es6
@@ -67,7 +67,7 @@ This will actually allow your project to leverage this config.
 
 7. Typescript will now expect files to exist in your `src` directory. Go ahead and create a sample file in `src` called `index.ts`:
 
-```
+```ts
 const getFood: () => string = () => {
   return 'yummy tacos!';
 };
@@ -83,7 +83,7 @@ VS Code can be tricky with linting, especially if you have global formatting too
 
 2. Now, let's update some of the settings for ESLint in VS Code's `settings.json` file. Pull up the [command palette](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette), which is `cmd shift p` on mac. Then type `settings json` and click on `Open Settings (JSON)`. In this file, provide the following settings:
 
-```
+```js
   "editor.formatOnSave": true,
   // turn auto-save off for javascript, react, typescript and typescript react
   // these will be done through eslint
@@ -116,7 +116,7 @@ VS Code can be tricky with linting, especially if you have global formatting too
 
 Want to customize the ESLint and Prettier settings even further? You can add the rules in your `.eslintrc.json` file. [ESLint Rules](https://eslint.org/docs/rules/) go under the `"rules"` option. [Prettier Options](https://prettier.io/docs/en/options.html) will be nested in the `"prettier/prettier"` options. Any prettier rules will overwrite the existing ones in my config. Here's an example of what you could do:
 
-```
+```json
 {
   "extends": ["eslint-config-jsb-node"],
   "rules": {
@@ -132,5 +132,3 @@ Want to customize the ESLint and Prettier settings even further? You can add the
 ```
 
 This would turn all console lint errors off (so you can use `console.log`). It would also omit parens in arrow functions when possible.
-
-stuff
